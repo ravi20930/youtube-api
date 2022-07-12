@@ -3,16 +3,23 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
+    "start": "nodemon app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "app-root-path": "^3.0.0",
     "cors": "^2.8.5",
     "dotenv": "^16.0.1",
     "express": "^4.18.1",
     "googleapis": "^105.0.0",
+    "morgan": "^1.10.0",
     "mysql2": "^2.3.3",
-    "sequelize": "^6.21.3"
+    "node-schedule": "^2.1.0",
+    "nodemon": "^2.0.19",
+    "sequelize": "^6.21.3",
+    "winston": "^3.8.1",
+    "winston-daily-rotate-file": "^4.7.1"
   }
 }

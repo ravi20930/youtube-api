@@ -1,0 +1,14 @@
+22-07-12 05:53:01 error: /video/search?q=india Error: Support for literal replacements in the `where` object has been removed.
+22-07-12 05:53:40 error: /video/search?q=india Error: Support for literal replacements in the `where` object has been removed.
+22-07-12 05:53:59 error: /video/search?q=india ReferenceError: res is not defined
+22-07-12 05:59:42 error: /video/search?q=india Error: Support for literal replacements in the `where` object has been removed.
+22-07-12 06:03:00 error: /video/search?q=india Error: Support for literal replacements in the `where` object has been removed.
+22-07-12 06:03:12 error: /video/search?q=t20 Error: Support for literal replacements in the `where` object has been removed.
+22-07-12 06:03:24 error: /video/search?q=rohit Error: Support for literal replacements in the `where` object has been removed.
+22-07-12 06:03:48 error: /video/search?q=rohit SequelizeDatabaseError: Unknown column 'rohit' in 'where clause'
+22-07-12 06:04:29 error: /video/search?q=rohit ReferenceError: data is not defined
+22-07-12 06:10:25 error: /video/search?q=Pandya%20Stars RangeError [ERR_HTTP_INVALID_STATUS_CODE]: Invalid status code: 1
+22-07-12 06:14:04 error: /video/search?q=Pandya%20Stars RangeError [ERR_HTTP_INVALID_STATUS_CODE]: Invalid status code: 1
+22-07-12 06:24:58 error: /video/search?q=Pandya%20Stars SequelizeDatabaseError: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'LIMIT 20 offset 0)' at line 1
+22-07-12 06:27:25 error: /video/search?q=Pandya%20Stars SequelizeDatabaseError: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'LIMIT 20 offset 0)' at line 1
+22-07-12 06:27:51 error: /video/search?q=Pandya%20Stars SequelizeDatabaseError: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'LIMIT 20 offset 0)' at line 1

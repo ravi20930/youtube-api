@@ -1,0 +1,15 @@
+{
+    "keep": {
+        "days": true,
+        "amount": 30
+    },
+    "auditLog": "/home/ravi/Downloads/youtube-api/logs/accessLogs/.cf187c849340e0615ff1e4dae54356a1186ccdbf-audit.json",
+    "files": [
+        {
+            "date": 1657603462485,
+            "name": "/home/ravi/Downloads/youtube-api/logs/accessLogs/application-2022-07-12-00.log",
+            "hash": "a3c1d7ef7694f768fa425c1da16a625877ed56e221cf4551b1ba3d07376ffe54"
+        }
+    ],
+    "hashType": "sha256"
+}

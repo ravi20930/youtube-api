@@ -1,61 +1,40 @@
 require('dotenv').config();
 const { google } = require('googleapis');
-const { sequelize } = require('./utils/db-helper')
+const port = process.env.port || 3000;
+const Video = require('./models/video-model')
+const morgan = require('morgan');
+const sequelize = require('./utils/db-helper')
 const express = require("express");
 const cors = require("cors");
+var cronjob = require("./cronjob");
+const videoRouter = require('./routes/video-routes')
 
-// const accountRouter = require("./routes/account");
 
 const app = express();
-
+app.use(morgan("dev"));
 app.use(express.json());
 app.use(cors({
     origin: '*',
     credentials: true
 }));
 
-// app.use("/account", accountRouter);
-// app.use("/", (req, res) => {
-//   res.json({ message: "Hello!" })
-// })
+app.use("/video", videoRouter);
 
-// sequelize
-//     .sync({ alter: false })
-//     .then((res) => {
-//         app.listen(8080, () => {
-//             console.log("Server running on http://localhost:8080");
-//         });
-//     })
-//     .catch((err) => {
-//         console.error(err);
-//     });
+sequelize
+    .sync({ alter: false })
+    .then((res) => {
+        app.listen(port, () => {
+            console.log('server running on port: ' + port);
+        });
+    })
+    .catch((err) => {
+        console.error(err);
+    });
 
-// Each API may support multiple versions. With this sample, we're getting
-// v3 of the blogger API, and using an API key to authenticate.
 const youtube = google.youtube({
     version: 'v3',
     auth: process.env.API_KEY
 });
-
-async function getVideos() {
-    var service = await youtube.videos.list({
-        part: 'snippet',
-        chart: 'mostPopular',
-        regionCode: 'in',
-        videoCategoryId: '17'
-    }, function (err, response) {
-        if (err) {
-            console.log('The API returned an error: ' + err);
-            return;
-        }
-        var videos = response.data.items;
-        if (videos.length == 0) {
-            console.log('No video found.');
-        } else {
-            console.log(videos);
-        }
-    });
-}
 
 getCategoryList = async () => {
     var service = await youtube.videoCategories.list({
@@ -74,8 +53,6 @@ getCategoryList = async () => {
         }
     });
 }
-
-// getChannel();
 // getCategoryList();
 
 search = async (keyword) => {
@@ -94,15 +71,49 @@ search = async (keyword) => {
         if (channels.length == 0) {
             console.log('No channel found.');
         } else {
-            console.log(response.data.items);
-            console.log('This channel\'s ID is %s. Its title is \'%s\', and ' +
-                'it has %s views.',
-                channels[0].id,
-                // channels[0].snippet.title,
-                // channels[0].statistics.viewCount
-            );
+            console.log(response);
         }
     });
 }
 
-search('cricket');
+// search('cricket rohit hh oy');
+
+getVideos = async () => {
+    const service = await youtube.videos.list({
+        part: 'snippet',
+        chart: 'mostPopular',
+        regionCode: 'in',
+        videoCategoryId: '17',
+        maxResults: '3'
+    }, async (err, response) => {
+        if (err) {
+            console.log('The API returned an error: ' + err);
+            return;
+        }
+        const videos = response.data.items;
+        if (videos.length == 0) {
+            console.log('No video found.');
+        } else {
+            try {
+                let dataArray = [];
+                let array = videos.forEach(async (data) => {
+                    dataArray.push({
+                        "thumbs": data.snippet.thumbnails,
+                        "title": data.snippet.title,
+                        "description": data.snippet.description.substring(0, 255),
+                        "publishTime": data.snippet.publishedAt
+                    })
+                });
+                let insertData = await Video.bulkCreate(dataArray, { returning: true }).then(function (response) {
+                    console.log(response);
+                })
+                    .catch(function (error) {
+                        console.log(error);
+                    });
+            } catch (err) {
+                console.log(err);
+            }
+        }
+    });
+}
+// getVideos();

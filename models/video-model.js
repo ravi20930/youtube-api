@@ -8,38 +8,26 @@ const Video = sequelize.define("videos", {
         allowNull: false,
         defaultValue: Sequelize.UUIDV4,
     },
-    message: {
+    title: {
         type: Sequelize.STRING,
         allowNull: false,
     },
-    from: Sequelize.STRING,
-    type: {
+    description: {
         type: Sequelize.STRING,
-        defaultValue: "MESSAGE", //MESSAGE || DOCUMENT
+        allowNull: true,
+        unique: false
     },
-    documentUrl: {
-        type: Sequelize.TEXT,
+    publishTime: {
+        type: Sequelize.STRING,
+        allowNull: false,
+    },
+    thumbs: {
+        type: Sequelize.JSON,
     },
 },
     {
         indexes: [
-            {
-                unique: false,
-                fields: ['message']
-            },
-            {
-                name: 'title_index',
-                using: 'BTREE',
-                fields: [
-                    'message',
-                    {
-                        name: 'title',
-                        collate: 'en_US',
-                        order: 'DESC',
-                        length: 5
-                    }
-                ]
-            }
+            { type: 'FULLTEXT', name: 'fulltext_search', fields: ['description', 'title'] }
         ]
     }
 );
