@@ -9,6 +9,11 @@
             "date": 1657603462486,
             "name": "/home/ravi/Downloads/youtube-api/logs/errorLogs/error-2022-07-12-00.log",
             "hash": "e93b684b22a3b24a7d5f4eff36960e5537ecda5bffe057913c81a46c690bd33f"
+        },
+        {
+            "date": 1657650619174,
+            "name": "/home/ravi/Downloads/youtube-api/logs/errorLogs/error-2022-07-13-00.log",
+            "hash": "884455551232a7d0a1663a50c7b3be3b4354330a86d404daf57f26ecf238e0db"
         }
     ],
     "hashType": "sha256"

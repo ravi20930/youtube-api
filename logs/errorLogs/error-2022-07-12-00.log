@@ -12,3 +12,15 @@
 22-07-12 06:24:58 error: /video/search?q=Pandya%20Stars SequelizeDatabaseError: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'LIMIT 20 offset 0)' at line 1
 22-07-12 06:27:25 error: /video/search?q=Pandya%20Stars SequelizeDatabaseError: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'LIMIT 20 offset 0)' at line 1
 22-07-12 06:27:51 error: /video/search?q=Pandya%20Stars SequelizeDatabaseError: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'LIMIT 20 offset 0)' at line 1
+22-07-12 11:36:33 error: /video/search?q=england SequelizeDatabaseError: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'rows=count(*) over() from videovideos where MATCH (title, description) AGAINST('' at line 1
+22-07-12 11:37:23 error: /video/search?q=england SequelizeDatabaseError: Table 'youtube.videovideos' doesn't exist
+22-07-12 11:39:40 error: /video/search?q=india&size=5 SequelizeDatabaseError: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'as rows,count(*) over() as count from videos where MATCH (title, description) AG' at line 1
+22-07-12 11:44:24 error: /video/search?q=india&size=5 SequelizeDatabaseError: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '*)) as rows,count(*) over() as count from videos where MATCH (title, description' at line 1
+22-07-12 11:44:58 error: /video/search?q=india&size=5 SequelizeDatabaseError: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'rows,count(*) over() as count from videos where MATCH (title, description) AGAIN' at line 1
+22-07-12 11:45:45 error: /video/search?q=india&size=5 SequelizeDatabaseError: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'rows, count(*) as count from videos where MATCH (title, description) AGAINST('in' at line 1
+22-07-12 11:46:06 error: /video/search?q=india&size=5 SequelizeDatabaseError: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'rows from videos where MATCH (title, description) AGAINST('india' IN NATURAL LAN' at line 1
+22-07-12 11:46:57 error: /video/search?q=india&size=5 SequelizeDatabaseError: FUNCTION youtube.array_agg does not exist
+22-07-12 11:53:58 error: /video/search?q=india&size=5 SequelizeDatabaseError: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'row, 
+            count(*) over() as count
+            from
+            (select ' at line 2
