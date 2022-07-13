@@ -13,3 +13,24 @@ there is a cron job which updates the db with latest videos every one minute<br/
 /video/search -> search similar videos from mysql database using query(q)<br/>
 for example /video/search?q=india?size=5?page=2<br/>
 
+// sample env file <br/>
+#youtube variables<br/>
+API_KEY=<br/>
+API_KEY1=<br/>
+API_KEY2=<br/>
+MAX_RESULTS=10<br/>
+CATEGORY_ID=17<br/>
+REGION_CODE=in<br/>
+CHART=mostPopular<br/>
+VIDEO_FETCH_INTERVAL_IN_MINUTES=1<br/><br/>
+
+#mysql variables<br/>
+DB_HOST=localhost<br/>
+DB_PORT=3306<br/>
+DB_USER=root<br/>
+DB_PASSWORD=Password@123<br/>
+DB_NAME=youtube<br/><br/>
+
+#node server port<br/>
+PORT=3000
+
