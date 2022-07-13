@@ -5,6 +5,6 @@ services:
     volumes:
       - ./logs:/youtube-api/logs
     env_file:
-      - ./.env
+      - ./env.list
     ports:
       - 3000:3000
