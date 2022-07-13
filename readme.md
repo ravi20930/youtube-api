@@ -32,5 +32,7 @@ DB_PASSWORD=Password@123<br/>
 DB_NAME=youtube<br/><br/>
 
 #node server port<br/>
-PORT=3000
+PORT=3000<br/><br/>
+// added access and error logs for debug purpose when the app is deployed<br/>
+// added wrapper to call youtube apis easily
 
