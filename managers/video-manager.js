@@ -21,6 +21,7 @@ exports.videoData = async (req) => {
         const { page, size } = req.query;
         const { limit, offset } = getPagination(page, size);
         const data = await videoModel.findAndCountAll({
+            order: [["publishTime", "desc"]],
             limit: limit,
             offset: offset
         })
@@ -48,8 +49,8 @@ exports.videoSearch = async (req) => {
         //     }
         // })]
         // 
-        const rows = await sequelize.query(`select * from videos where MATCH (title, description) AGAINST('${q}' IN NATURAL LANGUAGE MODE) LIMIT ${limit} offset ${offset}`, { type: QueryTypes.SELECT });
-        const count = await sequelize.query(`select count(*) as count from videos where MATCH (title, description) AGAINST('${q}' IN NATURAL LANGUAGE MODE) LIMIT ${limit} offset ${offset}`, { type: QueryTypes.SELECT });
+        const rows = await sequelize.query(`select * from videos where MATCH (title, description) AGAINST('${q}' IN NATURAL LANGUAGE MODE) ORDER BY publishTime DESC LIMIT ${limit} offset ${offset}`, { type: QueryTypes.SELECT });
+        const count = await sequelize.query(`select count(*) as count from videos where MATCH (title, description) AGAINST('${q}' IN NATURAL LANGUAGE MODE) ORDER BY publishTime DESC LIMIT ${limit} offset ${offset}`, { type: QueryTypes.SELECT });
         const finalData = {
             'count': count[0].count,
             'rows': rows
