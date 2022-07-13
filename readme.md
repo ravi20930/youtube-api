@@ -1,4 +1,4 @@
-** project setup **
+** project setup **<br/><br/>
 to run the project using docker, first install docker-engine and docker-compose(if using compose up) on your pc, then run these commands:<br/>
 // starting mysql-server<br/>
 // you can use my images from dockerhub or you can also build mysql image using Dockerfile in project's mysql folder or just use your existing mysql-server.<br/>
